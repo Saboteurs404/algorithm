@@ -24,22 +24,18 @@
 输出：false
 
 '''
-from collections import defaultdict
 class Solution:
     def dispose(self, num):
         # n = 0
         partition = []
         while num != 1:
             nums = [int(i) for i in str(num)]
-
-            # print(nums)
-            temp = sorted(nums)
-            # print(temp)
-            if temp in partition:
+            nums.sort()
+            if nums in partition:
                     # n > 100:
                 return False
             else:
-                partition.append(temp)
+                partition.append(nums)
                 num = 0
                 for item in nums:
                     num += item ** 2
@@ -49,7 +45,7 @@ class Solution:
 if __name__ == '__main__':
     num = 99
     n1 = 19
-    result = Solution().dispose(num)
+    result = Solution().dispose(n1)
     print(result)
 
 
